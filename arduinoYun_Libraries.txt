@@ -1,0 +1,17 @@
+Guide: https://learn.adafruit.com/wireless-security-camera-arduino-yun/setting-up-your-arduino-yun
+
+opkg update
+opkg install kmod-video-uvc
+opkg install python-openssl
+opkg install fswebcam
+opkg install mjpg-streamer
+
+To Begin Streaming:
+mjpg_streamer -i "input_uvc.so -d /dev/video0 -r 640x480 -f 25" -o "output_http.so -p 8080 -w /www/webcam" &
+
+View Live Stream:
+http://myarduinoyun.local:8080/stream.html
+
+Installing PHP5
+opkg update
+opkg install php5 php5-cgi
